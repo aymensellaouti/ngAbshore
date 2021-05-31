@@ -3,11 +3,9 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-second',
   template: `
-    <div> cc je suis le second component </div>
+    <p> cc je suis le second component </p>
   `,
-  styles: [`
-      <div> cc je suis le second component </div>
-  `]
+  styles: [``]
 })
 export class SecondComponent implements OnInit {
 
