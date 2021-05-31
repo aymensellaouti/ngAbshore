@@ -1,2 +1,8 @@
-<p>first works!</p>
+<p
+   [hidden]='isHidden' 
+   [style.color]="color"
+>first works!</p>
+<p (click)="showHide()">JE suis  {{name}}!</p>
 <app-second></app-second>
+<input type="text" #monInput (mouseenter)="afficher(monInput.value)">
+{{texte}}

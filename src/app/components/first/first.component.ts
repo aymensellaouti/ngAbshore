@@ -6,10 +6,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./first.component.css']
 })
 export class FirstComponent implements OnInit {
-
+  name = 'aymen';
+  isHidden = false;
+  color = 'green';
+  texte = '';
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  showHide() {
+    this.isHidden = !this.isHidden;
+  }
+  afficher(content: string) {
+    this.texte = content;
   }
 
 }
