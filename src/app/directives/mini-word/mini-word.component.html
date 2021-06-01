@@ -1,0 +1,37 @@
+<p
+  appHighlight
+  [in]="'black'"
+  [out]="'pink'"
+  (click)="isBorderDashed = !isBorderDashed"
+  [ngStyle]="{
+    color: color,
+    fontFamily: font,
+    fontSize: size + 'px'
+  }"
+  [ngClass]="{
+    border1: isBorderDashed,
+    border2: !isBorderDashed
+  }"
+>
+  mini-word works!
+</p>
+
+<div class="row">
+  <div class="col-4">
+    <input [(ngModel)]="color" type="color" class="form-control" />
+  </div>
+  <div class="col-4">
+    <input type="number" [(ngModel)]="size" class="form-control" />
+  </div>
+  <div class="col-4">
+    <select
+      class="form-control"
+      #selectInput
+      (change)="changeFont(selectInput.value)"
+    >
+      <option value="Garamond">Garamond</option>
+      <option value="Verdana">Verdana</option>
+      <option value="Arial">Arial</option>
+    </select>
+  </div>
+</div>
