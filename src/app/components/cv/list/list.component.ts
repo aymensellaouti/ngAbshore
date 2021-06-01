@@ -7,6 +7,7 @@ import { Cv } from '../Model/cv';
   styleUrls: ['./list.component.css'],
 })
 export class ListComponent implements OnInit {
+  isActive = 0;
   cvs: Cv[] = [
     new Cv(
       1,
@@ -18,6 +19,8 @@ export class ListComponent implements OnInit {
       38
     ),
     new Cv(2, 'test', 'test', 'rotating_card_profile2.png', 'teacher', 456, 38),
+    new Cv(3, 'test', 'test', 'rotating_card_profile2.png', 'teacher', 456, 38),
+    new Cv(4, 'test', 'test', 'rotating_card_profile2.png', 'teacher', 456, 38),
   ];
   @Output() forwardSelectedCv = new EventEmitter();
   constructor() {}
@@ -26,5 +29,8 @@ export class ListComponent implements OnInit {
 
   handleSelectCv(cv: Cv): void {
     this.forwardSelectedCv.emit(cv);
+  }
+  changeActive(actualCv: Cv) {
+    this.isActive = actualCv.id;
   }
 }
