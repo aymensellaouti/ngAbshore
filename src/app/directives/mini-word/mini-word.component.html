@@ -1,7 +1,7 @@
 <p
   appHighlight
-  [in]="'black'"
   [out]="'pink'"
+  [in]="'black'"
   (click)="isBorderDashed = !isBorderDashed"
   [ngStyle]="{
     color: color,
@@ -34,4 +34,8 @@
       <option value="Arial">Arial</option>
     </select>
   </div>
+</div>
+
+<div class="row">
+  <input type="text" appRainbow class="form-control" />
 </div>
