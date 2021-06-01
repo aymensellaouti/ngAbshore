@@ -18,8 +18,8 @@ export class ListComponent implements OnInit {
       1234,
       38
     ),
-    new Cv(2, 'test', 'test', 'rotating_card_profile2.png', 'teacher', 456, 38),
-    new Cv(3, 'test', 'test', 'rotating_card_profile2.png', 'teacher', 456, 38),
+    new Cv(2, 'test', 'test', '', 'teacher', 456, 38),
+    new Cv(3, 'test', 'test', '              ', 'teacher', 456, 38),
     new Cv(4, 'test', 'test', 'rotating_card_profile2.png', 'teacher', 456, 38),
   ];
   @Output() forwardSelectedCv = new EventEmitter();

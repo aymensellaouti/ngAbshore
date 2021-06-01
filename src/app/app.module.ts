@@ -20,6 +20,10 @@ import { NgstyleComponent } from './directives/ngstyle/ngstyle.component';
 import { MiniWordComponent } from './directives/mini-word/mini-word.component';
 import { HighlightDirective } from './directives/highlight.directive';
 import { RainbowDirective } from './directives/rainbow.directive';
+import { BtcToUsdPipe } from './pipes/btc-to-usd.pipe';
+import { DefaultImagePipe } from './components/cv/pipes/default-image.pipe';
+import { Logger } from './services/logger.service';
+import { HelperService } from './services/helper.service';
 
 @NgModule({
   declarations: [
@@ -39,14 +43,12 @@ import { RainbowDirective } from './directives/rainbow.directive';
     NgstyleComponent,
     MiniWordComponent,
     HighlightDirective,
-    RainbowDirective
+    RainbowDirective,
+    BtcToUsdPipe,
+    DefaultImagePipe,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
