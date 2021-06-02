@@ -1,0 +1,23 @@
+<form #monFormulaire="ngForm">
+  Name :
+  <input
+    type="text"
+    required
+    minlength="4"
+    ngModel
+    name="name"
+    class="form-control"
+  />
+  Age :
+  <input
+    type="number"
+    required
+    pattern="[0,1]?\d{1,2}"
+    ngModel
+    name="age"
+    class="form-control"
+  />
+</form>
+<button (click)="processForm(monFormulaire)" class="btn btn-primary">
+  Submit
+</button>

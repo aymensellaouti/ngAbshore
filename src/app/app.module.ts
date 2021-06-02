@@ -31,6 +31,9 @@ import { EmbaucheComponent } from './cv/embauche/embauche.component';
 import { HeaderComponent } from './components/header/header.component';
 import { RoutingSimulatorComponent } from './components/routing-simulator/routing-simulator.component';
 import { DetailCvComponent } from './cv/detail-cv/detail-cv.component';
+import { BackComponent } from './components/back/back.component';
+import { FrontComponent } from './components/front/front.component';
+import { TestFormComponent } from './components/test-form/test-form.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +61,9 @@ import { DetailCvComponent } from './cv/detail-cv/detail-cv.component';
     HeaderComponent,
     RoutingSimulatorComponent,
     DetailCvComponent,
+    BackComponent,
+    FrontComponent,
+    TestFormComponent,
   ],
   imports: [
     BrowserModule,

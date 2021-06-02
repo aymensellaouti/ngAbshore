@@ -1,8 +1,12 @@
 export const CONSTANTES = {
   defaultImage: 'cv.png',
   router: {
-    CV: 'cv',
-    DETAIL_CV: 'cv/:id',
+    BACK: 'admin',
+    SECOND: 'second',
+    FRONT: '',
+    CV_PREFIX: 'cv',
+    CV: '',
+    DETAIL_CV: ':id',
     TODO: 'todo',
     COLOR: 'color/:myColor',
     WORD: 'word',

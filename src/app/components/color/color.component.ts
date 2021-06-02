@@ -15,6 +15,9 @@ export class ColorComponent implements OnInit {
     this.activatedRoute.params.subscribe((mesParams) => {
       this.color = mesParams['myColor'];
     });
+    this.activatedRoute.queryParams.subscribe((mesParams) => {
+      console.log(mesParams);
+    });
   }
   changeColor(newColor: string): void {
     this.color = newColor;
