@@ -10,6 +10,7 @@ import { DetailCvComponent } from './cv/detail-cv/detail-cv.component';
 import { FrontComponent } from './components/front/front.component';
 import { BackComponent } from './components/back/back.component';
 import { SecondComponent } from './components/second/second.component';
+import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
   { path: '', component: FirstComponent },
@@ -34,6 +35,7 @@ const routes: Routes = [
   { path: CONSTANTES.router.WORD, component: MiniWordComponent },
   { path: CONSTANTES.router.COLOR, component: ColorComponent },
   { path: CONSTANTES.router.COLOR, component: ColorComponent },
+  { path: CONSTANTES.router.LOGIN, component: LoginComponent },
   { path: '**', redirectTo: CONSTANTES.router.CV_PREFIX, pathMatch: 'full' },
   /*   { path: ':param', component: SecondComponent }, */
 ];

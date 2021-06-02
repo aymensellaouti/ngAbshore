@@ -34,6 +34,7 @@ import { DetailCvComponent } from './cv/detail-cv/detail-cv.component';
 import { BackComponent } from './components/back/back.component';
 import { FrontComponent } from './components/front/front.component';
 import { TestFormComponent } from './components/test-form/test-form.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { TestFormComponent } from './components/test-form/test-form.component';
     BackComponent,
     FrontComponent,
     TestFormComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

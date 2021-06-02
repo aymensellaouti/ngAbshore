@@ -10,5 +10,6 @@ export const CONSTANTES = {
     TODO: 'todo',
     COLOR: 'color/:myColor',
     WORD: 'word',
+    LOGIN: 'login',
   },
 };
