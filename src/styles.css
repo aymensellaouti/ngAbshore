@@ -1,8 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~bootswatch/dist/cyborg/bootstrap.css';
-@import '~font-awesome';
-@import 'assets/css/rotating-card.css';
+@import "~bootswatch/dist/cyborg/bootstrap.css";
+@import "~font-awesome";
+@import "assets/css/rotating-card.css";
+@import "assets/css/toaster.css";
 
 p {
-    color: black;
+  color: black;
 }
