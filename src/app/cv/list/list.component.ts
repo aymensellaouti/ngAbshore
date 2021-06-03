@@ -10,16 +10,16 @@ import { CvService } from '../services/cv.service';
 export class ListComponent implements OnInit {
   isActive = 0;
   cvs: Cv[] = [];
-  @Output() forwardSelectedCv = new EventEmitter();
+/*   @Output() forwardSelectedCv = new EventEmitter(); */
   constructor(private cvService: CvService) {}
 
   ngOnInit(): void {
     this.cvs = this.cvService.getCvs();
   }
 
-  handleSelectCv(cv: Cv): void {
+/*   handleSelectCv(cv: Cv): void {
     this.forwardSelectedCv.emit(cv);
-  }
+  } */
   changeActive(actualCv: Cv) {
     this.isActive = actualCv.id;
   }

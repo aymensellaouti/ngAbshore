@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-test-observable',
@@ -27,6 +28,11 @@ export class TestObservableComponent implements OnInit {
       (error) => console.log(error),
       () => console.log('end')
     );
-    observable.subscribe((data) => this.toaster.info('' + data));
+    observable
+      .pipe(
+        map((element) => element * 3),
+        filter((x) => x % 2 === 0)
+      )
+      .subscribe((data) => this.toaster.info('' + data));
   }
 }

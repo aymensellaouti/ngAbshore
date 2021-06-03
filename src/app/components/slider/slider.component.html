@@ -7,3 +7,12 @@
   }"
   [ngClass]="{ 'rounded-circle': isRounded }"
 />
+<img
+  src="assets/images/{{ sliderObservable | async}}"
+  alt="slider"
+  [ngStyle]="{
+    width: width + 'px',
+    heigth: heigth + 'px'
+  }"
+  [ngClass]="{ 'rounded-circle': isRounded }"
+/>
