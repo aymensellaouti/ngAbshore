@@ -34,7 +34,7 @@
             >Cv</a
           >
         </li>
-        <li class="nav-item">
+        <li *ngIf="authService.isAuthenticated()" class="nav-item">
           <a
             class="nav-link"
             [routerLink]="['cv', 'add']"
@@ -66,13 +66,20 @@
             >Word</a
           >
         </li>
-        <li class="nav-item">
+        <li *ngIf="!authService.isAuthenticated()" class="nav-item">
           <a
             class="nav-link"
             [routerLink]="['login']"
             routerLinkActive="active text-danger"
             >Login</a
           >
+        </li>
+        <li
+          *ngIf="authService.isAuthenticated()"
+          class="nav-item hand-cursor"
+          (click)="logout()"
+        >
+          <a class="nav-link">Logout</a>
         </li>
         <!-- <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>

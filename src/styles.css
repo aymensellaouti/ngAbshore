@@ -7,3 +7,7 @@
 p {
   color: black;
 }
+
+.hand-cursor {
+  cursor: pointer;
+}
