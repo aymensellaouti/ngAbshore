@@ -49,11 +49,7 @@ export class CvService {
   }
 
   deleteCv(cv: Cv): Observable<DeleteCvDto> {
-    const params = new HttpParams().set(
-      'access_token',
-      localStorage.getItem('token')
-    );
-    return this.http.delete<DeleteCvDto>(CONSTANTES.api.CV + cv.id, {params});
+    return this.http.delete<DeleteCvDto>(CONSTANTES.api.CV + cv.id);
   }
 
   selectCv(cv: Cv) {
@@ -61,7 +57,6 @@ export class CvService {
   }
 
   addCv(cv: Cv): Observable<Cv> {
-    const headers = new HttpHeaders().set('Authorization', localStorage.getItem('token'));
-    return this.http.post<Cv>(CONSTANTES.api.CV, cv, {headers});
+    return this.http.post<Cv>(CONSTANTES.api.CV, cv);
   }
 }
