@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CvService } from '../services/cv.service';
 import { CONSTANTES } from '../../constantes';
 import { Cv } from '../Model/cv';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-detail-cv',
@@ -14,7 +15,8 @@ export class DetailCvComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private cvService: CvService,
-    private router: Router
+    private router: Router,
+    private toaster: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -27,7 +29,14 @@ export class DetailCvComponent implements OnInit {
   }
 
   deletePersonne() {
-    this.cvService.deleteCv(this.cv);
-    this.router.navigate([CONSTANTES.router.CV]);
+    this.cvService.deleteCv(this.cv).subscribe(
+      (success) => {
+        this.toaster.success(`
+          Le cv de ${this.cv.firstname} ${this.cv.name} a été supprim avec succès
+        `);
+        this.router.navigate([CONSTANTES.router.CV]);
+      },
+      (erreur) => console.log(erreur)
+    );
   }
 }

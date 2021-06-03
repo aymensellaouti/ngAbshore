@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Subject, Observable } from 'rxjs';
 import { Cv } from '../Model/cv';
 import { CONSTANTES } from '../../constantes';
+import { DeleteCvDto } from '../dto/cv-delete.dto';
 
 @Injectable({
   providedIn: 'root',
@@ -49,13 +50,8 @@ export class CvService {
     return this.http.get<Cv>(CONSTANTES.api.CV + id);
   }
 
-  deleteCv(cv: Cv): boolean {
-    const index = this.cvs.indexOf(cv);
-    if (index >= 0) {
-      this.cvs.splice(index, 1);
-      return true;
-    }
-    return false;
+  deleteCv(cv: Cv):Observable<DeleteCvDto> {
+    return this.http.delete<DeleteCvDto>(CONSTANTES.api.CV + cv.id);
   }
 
   selectCv(cv: Cv) {
