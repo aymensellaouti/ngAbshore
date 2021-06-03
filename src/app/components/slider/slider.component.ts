@@ -1,14 +1,15 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-slider',
   templateUrl: './slider.component.html',
   styleUrls: ['./slider.component.css'],
 })
-export class SliderComponent implements OnInit {
+export class SliderComponent implements OnInit, OnDestroy {
   path = 'rotating_card_profile3.png';
   sliderObservable: Observable<string> = null;
+  sliderSubscription: Subscription = null;
   @Input() timer = 1000;
   @Input() width = 100;
   @Input() heigth = 100;
@@ -22,6 +23,9 @@ export class SliderComponent implements OnInit {
     'rotating_card_profile3.png',
   ];
   constructor() {}
+  ngOnDestroy(): void {
+   this.sliderSubscription.unsubscribe();
+  }
 
   ngOnInit(): void {
     this.sliderObservable = new Observable<string>((observer) => {
@@ -33,6 +37,6 @@ export class SliderComponent implements OnInit {
         observer.next(this.paths[i++]);
       }, this.timer);
     });
-    this.sliderObservable.subscribe((newPath) => (this.path = newPath));
+    this.sliderSubscription = this.sliderObservable.subscribe((newPath) => (this.path = newPath));
   }
 }
