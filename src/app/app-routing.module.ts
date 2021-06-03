@@ -11,6 +11,7 @@ import { FrontComponent } from './components/front/front.component';
 import { BackComponent } from './components/back/back.component';
 import { SecondComponent } from './components/second/second.component';
 import { LoginComponent } from './components/login/login.component';
+import { AddCvComponent } from './cv/add-cv/add-cv.component';
 
 const routes: Routes = [
   { path: '', component: FirstComponent },
@@ -18,6 +19,7 @@ const routes: Routes = [
     path: CONSTANTES.router.CV_PREFIX,
     children: [
       { path: CONSTANTES.router.CV, component: CvComponent },
+      { path: CONSTANTES.router.ADD_CV, component: AddCvComponent },
       { path: CONSTANTES.router.DETAIL_CV, component: DetailCvComponent },
     ],
   },

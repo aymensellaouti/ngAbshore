@@ -34,7 +34,7 @@ export class DetailCvComponent implements OnInit {
         this.toaster.success(`
           Le cv de ${this.cv.firstname} ${this.cv.name} a été supprim avec succès
         `);
-        this.router.navigate([CONSTANTES.router.CV]);
+        this.router.navigate([CONSTANTES.router.CV_PREFIX]);
       },
       (erreur) => console.log(erreur)
     );

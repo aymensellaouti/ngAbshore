@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject, Observable } from 'rxjs';
 import { Cv } from '../Model/cv';
@@ -11,9 +11,7 @@ import { DeleteCvDto } from '../dto/cv-delete.dto';
 export class CvService {
   selectItemSubject = new Subject<Cv>();
   private cvs: Cv[] = [];
-  constructor(
-    private http: HttpClient
-  ) {
+  constructor(private http: HttpClient) {
     this.cvs = [
       new Cv(
         1,
@@ -50,11 +48,20 @@ export class CvService {
     return this.http.get<Cv>(CONSTANTES.api.CV + id);
   }
 
-  deleteCv(cv: Cv):Observable<DeleteCvDto> {
-    return this.http.delete<DeleteCvDto>(CONSTANTES.api.CV + cv.id);
+  deleteCv(cv: Cv): Observable<DeleteCvDto> {
+    const params = new HttpParams().set(
+      'access_token',
+      localStorage.getItem('token')
+    );
+    return this.http.delete<DeleteCvDto>(CONSTANTES.api.CV + cv.id, {params});
   }
 
   selectCv(cv: Cv) {
     this.selectItemSubject.next(cv);
+  }
+
+  addCv(cv: Cv): Observable<Cv> {
+    const headers = new HttpHeaders().set('Authorization', localStorage.getItem('token'));
+    return this.http.post<Cv>(CONSTANTES.api.CV, cv, {headers});
   }
 }

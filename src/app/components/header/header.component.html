@@ -30,7 +30,16 @@
             class="nav-link"
             [routerLink]="['cv']"
             routerLinkActive="active text-danger"
+            [routerLinkActiveOptions]="{ exact: true }"
             >Cv</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [routerLink]="['cv', 'add']"
+            routerLinkActive="active text-danger"
+            >Add Cv</a
           >
         </li>
         <li class="nav-item">

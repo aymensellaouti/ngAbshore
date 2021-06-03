@@ -49,6 +49,7 @@
     <label class="form-check-label" for="exampleCheck1">Check me out</label>
   </div> -->
   <button
+    (click)="login(loginForm.value)"
     [disabled]="loginForm.invalid"
     type="submit"
     class="btn btn-primary mt-2"
