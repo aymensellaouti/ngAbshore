@@ -12,4 +12,7 @@ export const CONSTANTES = {
     WORD: 'word',
     LOGIN: 'login',
   },
+  api: {
+    CV: 'https://immense-citadel-91115.herokuapp.com/api/personnes/',
+  },
 };

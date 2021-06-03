@@ -19,10 +19,10 @@ export class DetailCvComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params) => {
-      this.cv = this.cvService.getCvById(+params.id);
-      if (!this.cv) {
-        this.router.navigate([CONSTANTES.router.CV]);
-      }
+      this.cvService.getCvById(+params.id).subscribe(
+        (cv) => (this.cv = cv),
+        (erreur) => this.router.navigate([CONSTANTES.router.CV_PREFIX])
+      );
     });
   }
 

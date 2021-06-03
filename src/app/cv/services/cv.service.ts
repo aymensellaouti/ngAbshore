@@ -1,6 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Subject, Observable } from 'rxjs';
 import { Cv } from '../Model/cv';
+import { CONSTANTES } from '../../constantes';
 
 @Injectable({
   providedIn: 'root',
@@ -8,7 +10,9 @@ import { Cv } from '../Model/cv';
 export class CvService {
   selectItemSubject = new Subject<Cv>();
   private cvs: Cv[] = [];
-  constructor() {
+  constructor(
+    private http: HttpClient
+  ) {
     this.cvs = [
       new Cv(
         1,
@@ -33,12 +37,16 @@ export class CvService {
     ];
   }
 
-  getCvs(): Cv[] {
+  getFakeCvs(): Cv[] {
     return this.cvs;
   }
 
-  getCvById(id: number): Cv {
-    return this.cvs.find((cv) => cv.id === id);
+  getCvs(): Observable<Cv[]> {
+    return this.http.get<Cv[]>(CONSTANTES.api.CV);
+  }
+
+  getCvById(id: number): Observable<Cv> {
+    return this.http.get<Cv>(CONSTANTES.api.CV + id);
   }
 
   deleteCv(cv: Cv): boolean {
